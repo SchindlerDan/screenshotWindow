@@ -18,7 +18,7 @@ public class Screenshot extends JPanel{
             Robot r = new Robot(); 
   
             // It saves screenshot to desired path 
-            String path = "~/Downloads/screenshot.jpg"; 
+            String path = "screenshot.jpg"; 
   
             // Used to get ScreenSize and capture image 
             Rectangle capture =  
@@ -42,20 +42,28 @@ public class Screenshot extends JPanel{
 
     private static void createWindow(){
 	//img is the screenshot we took.
-	BufferedImage img = new BufferedImage(0,0,0);
-	try{
-		img = ImageIO.read(new File("~/Downloads/screenshot.jpg"));
+	//BufferedImage img = new BufferedImage(0,0,TYPE_INT_ARGB);
+	try{    
+		BufferedImage img = ImageIO.read(new File("screenshot.jpg"));
+		JFrame jf = new JFrame("");
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.add(new JLabel(new ImageIcon(img)));
+		jf.setVisible(true);
+		jf.setExtendedState(jf.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	
+	
+	
 	}
 	catch(Exception e){
 		System.out.println("error finding screenshot");
 		System.exit(1);
 	}
-	JFrame jf = new JFrame("");
-	jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	jf.add(new JLabel(new ImageIcon(img)));
-	jf.setVisible(true);
+//	JFrame jf = new JFrame("");
+//	jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	jf.add(new JLabel(new ImageIcon(img)));
+//	jf.setVisible(true);
 	
 	
     }
 }
-//test
+
