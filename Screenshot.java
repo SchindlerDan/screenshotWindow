@@ -18,7 +18,7 @@ public class Screenshot extends JPanel{
     	 * This for-loop calls the methods for taking a screenshot and
     	 * creating a window every 3 seconds 
     	 */
-    	for(int i=0; i < 500; i++) {
+    	while(true) {
     		try {
     			Thread.sleep(3000); 
         		takeScreenshot();
